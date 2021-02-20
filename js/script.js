@@ -64,7 +64,7 @@ function randomBackgrnd(){
 /***
  * whenever the "show another quote" button is clicked, the eventlistener calls the printQuote function
 ***/
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 /***
  * these are two seperate timers which call the functions printQuote & randomBackgrnd every 10000 milliseconds (10 seconds)
