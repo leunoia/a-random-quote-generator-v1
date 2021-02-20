@@ -37,6 +37,13 @@ function getRandomQuote(num){
  * After it is put into HTML syntax, the HTML message replaces the existing HTMl in the index.html document
  * 
 ***/
+function randomBackgrnd(){
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var bgC = `rgb(${x}, ${y}, ${z})`;
+  document.getElementById('background').style.backgroundColor = bgC;
+}
 function printQuote (){
   const quote = getRandomQuote(9);
   let HTML = 
@@ -52,15 +59,10 @@ function printQuote (){
       HTML += `<span class="tags"> ${quote.tags} </span>`;
     }
   HTML += '</p>'
-  document.getElementById('quote-box').innerHTML = HTML; 
+  document.getElementById('quote-box').innerHTML = HTML;
+  randomBackgrnd(); 
 }
-function randomBackgrnd(){
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  var bgC = `rgb(${x}, ${y}, ${z})`;
-  document.getElementById('background').style.backgroundColor = bgC;
-}
+
 /***
  * whenever the "show another quote" button is clicked, the eventlistener calls the printQuote function
 ***/
@@ -70,5 +72,3 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
  * these are two seperate timers which call the functions printQuote & randomBackgrnd every 10000 milliseconds (10 seconds)
  */
 setInterval(printQuote,10000);
-
-setInterval(randomBackgrnd,10000);
